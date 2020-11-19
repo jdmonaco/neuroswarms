@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/314076814.svg)](https://zenodo.org/badge/latestdoi/314076814)
+
 # NeuroSwarms Example Model: Source Code
 
 This package contains the source code for a neural swarming controller model
