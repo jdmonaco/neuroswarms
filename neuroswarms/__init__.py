@@ -15,7 +15,7 @@ Related paper:
       114, 269–284 (2020). https://doi.org/10.1007/s00422-020-00823-z
 
 This software is provided AS IS under the terms of the Open Source MIT License.
-See http://www.opensource.org/licenses/mit-license.ph
+See http://www.opensource.org/licenses/mit-license.php
 """
 
 NAME = 'neuroswarms'
