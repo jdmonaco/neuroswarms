@@ -6,13 +6,13 @@ Affiliation: Johns Hopkins University
 Created: 2019-05-12
 Updated: 2020-11-16
 
-Related paper: 
+Related paper:
 
   Monaco, J.D., Hwang, G.M., Schultz, K.M. et al. Cognitive swarming in complex
       environments with attractor dynamics and oscillatory computing. Biol Cybern
       114, 269–284 (2020). https://doi.org/10.1007/s00422-020-00823-z
 
-This software is provided AS IS under the terms of the Open Source MIT License. 
+This software is provided AS IS under the terms of the Open Source MIT License.
 See http://www.opensource.org/licenses/mit-license.ph
 """
 
@@ -27,13 +27,6 @@ from numpy import (ndarray, array, empty, empty_like, zeros, zeros_like, ones,
         arange, broadcast_to, isclose, isfinite, histogram, linspace, exp,
         log1p, sqrt, nextafter, any)
 from numpy.random import seed, rand, randn, randint
-
-# from moviepy.editor import VideoClip
-# from moviepy.video.io.bindings import mplfig_to_npimage
-#
-# Set the environment variable to tell moviepy where ffmpeg is
-# if platform.system() == 'Windows':
-#     os.environ['FFMPEG_BINARY'] = r"C:\Program Files (x86)\ffmpeg\ffmpeg.exe"
 
 from matplotlib import pyplot as plt
 from matplotlib.colors import colorConverter
@@ -141,8 +134,8 @@ class NeuroswarmsModel(NeuroswarmsContext):
                 logstr = f' * {name} = {val} [default: {dflt}]'
             self.out(logstr, hideprefix=True)
 
-        # Import environmental geometry into the global scope, into the 
-        # persistent key-value store, and as instance attributes of the 
+        # Import environmental geometry into the global scope, into the
+        # persistent key-value store, and as instance attributes of the
         # simulation object
         global E
         self.hline()
@@ -182,10 +175,10 @@ class NeuroswarmsModel(NeuroswarmsContext):
         ---------
 
         tag       : string tag to be added to the output movie file
-        paramfile : absolute path or filename for a parameter fille; for a 
+        paramfile : absolute path or filename for a parameter fille; for a
                     filename, the project and run directories will be searched
 
-        Keyword arguments provide parameter values that supercede those found 
+        Keyword arguments provide parameter values that supercede those found
         in a `paramfile`.
         """
         self.set_parameters(paramfile, **params)
@@ -333,17 +326,6 @@ class NeuroswarmsModel(NeuroswarmsContext):
 
             return self.artists
 
-        # Update loop function - MoviePy version
-        # n = -1
-        # def update(t):
-            # For moviepy, the floating-point time is provided to the update function,
-            # so we will instead keep track of our own frame count and simply return
-            # the static _fig in case the callback goes over frame count
-            # nonlocal n
-            # n += 1
-            # if n > _nframes - 1:
-            #     return mplfig_to_npimage(_fig)
-        
         #
         # Update loop for Matplotlib figure animation
         #
@@ -410,9 +392,9 @@ class NeuroswarmsModel(NeuroswarmsContext):
             W_R[:] += V_Delta*V_R*dt*eta_R*p*(r - p*W_R)
             W_S[:] += V_Delta*V_S*dt*eta_S*p*(q - p*W_S)
 
-            # For precision and masking, convert non-zero weights to distances 
-            # via log1p (thus requiring subtraction of 1, since we are not 
-            # using expm1 to create weights because we do not want learning to 
+            # For precision and masking, convert non-zero weights to distances
+            # via log1p (thus requiring subtraction of 1, since we are not
+            # using expm1 to create weights because we do not want learning to
             # operate on negative weights). Eqns. 15-16.
             W_R.clip(0, ONEMEPS, out=W_R)
             W_S.clip(0, ONEMEPS, out=W_S)
@@ -519,12 +501,6 @@ class NeuroswarmsModel(NeuroswarmsContext):
             # For matplolib.animation.FuncAnimation:
             return self.artists
 
-            # For moviepy.editor.VideoClip:
-            # return mplfig_to_npimage(_fig)
-
-        # For moviepy, we need to manually initialize the figure
-        # init()
-
         # Create the Matplotlib figure animation object
         anim = FuncAnimation(fig=_fig, func=update, frames=range(_nframes),
                init_func=init, interval=10, repeat=False, blit=True)
@@ -533,8 +509,6 @@ class NeuroswarmsModel(NeuroswarmsContext):
         if tag: fn = '{}+{}.mp4'.format(self._name, tag)
         else:   fn = '{}.mp4'.format(self._name)
         self.savepath = self.path(fn)
-        # animation = VideoClip(update, duration=duration)
-        # animation.write_videofile(temppath, fps=_nframes/duration)
         anim.save(self.savepath, fps=MOVIE_FPS, dpi=MOVIE_DPI)
         self.hline()
         plt.close(_fig)
@@ -558,7 +532,7 @@ class NeuroswarmsModel(NeuroswarmsContext):
 
         Note: This code will call the command-line movie player `mpv` if it is
         installed and available on the local search path. On macOS systems, it
-        can be installed with homebrew via `brew install mpv`. On linux, 
+        can be installed with homebrew via `brew install mpv`. On linux,
         it can be installed in standard ways, such as `sudo apt install mpv`.
         """
         dv = subprocess.DEVNULL

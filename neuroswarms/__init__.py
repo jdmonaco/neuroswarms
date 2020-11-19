@@ -8,13 +8,13 @@ Updated: 2020-11-17
 
 Requirements: numpy, scipy, matplotlib, pytables, pillow.
 
-Related paper: 
+Related paper:
 
   Monaco, J.D., Hwang, G.M., Schultz, K.M. et al. Cognitive swarming in complex
       environments with attractor dynamics and oscillatory computing. Biol Cybern
       114, 269–284 (2020). https://doi.org/10.1007/s00422-020-00823-z
 
-This software is provided AS IS under the terms of the Open Source MIT License. 
+This software is provided AS IS under the terms of the Open Source MIT License.
 See http://www.opensource.org/licenses/mit-license.ph
 """
 
