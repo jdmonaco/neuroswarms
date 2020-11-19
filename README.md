@@ -41,17 +41,17 @@ computing. Biol Cybern 114, 269–284.](https://doi.org/10.1007/s00422-020-00823
 
 **Installation**
 
-First, either set up a new python environment (with either venv or Anaconda) and
-install the required dependencies. Using Anaconda, this would look like,
+First, set up a new python environment (with either venv or Anaconda) and
+install the required dependencies. Using Anaconda, you can enter these commands
+in your shell:
 
 ```bash
 $ conda create -n neuroswarms python ipython numpy scipy matplotlib pytables pillow
 $ conda activate neuroswarms
 ```
 
-Then, in the top-level `neuroswarms` folder (either cloned or downloaded from
-this repository), you can do a developer install (with the `-e` option below) if
-you are interested in working with the code:
+Then, in the top-level `neuroswarms` folder, you can do a developer install
+(with the `-e` option below) if you are interested in working with the code:
 
 ```bash
 (neuroswarms)$ cd /path/to/neuroswarms
