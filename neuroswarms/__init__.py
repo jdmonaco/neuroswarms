@@ -19,7 +19,7 @@ See http://www.opensource.org/licenses/mit-license.php
 """
 
 NAME = 'neuroswarms'
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 
 import os
 import sys

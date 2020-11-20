@@ -7,7 +7,7 @@ with open(p.join(here, 'README.md')) as f:
 
 setup(
     name='neuroswarms',
-    version='1.0.0',
+    version='1.0.1',
     description='NeuroSwarms: A neural swarming controller model',
     long_description=long_description,
     url='https://github.com/jdmonaco/neuroswarms',
