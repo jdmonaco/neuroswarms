@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/314076814.svg)](https://zenodo.org/badge/latestdoi/314076814)
+[![DOI](https://zenodo.org/badge/314076814.svg)](https://doi.org/10.5281/zenodo.4280826)
 
 # NeuroSwarms Example Model: Source Code
 
